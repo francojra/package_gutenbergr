@@ -24,3 +24,19 @@ gutenberg_works(languages = "pt") %>% # Acessa os textos em português
 
 gutenberg_works(distinct = TRUE, author == "Austen, Jane") %>% # Textos da Jane Austen
   view()
+
+# Buscando por temas -----------------------------------------------------------------------------------------------------------------------
+
+library(dplyr)
+
+gutenberg_subjects %>%
+  filter(subject == "Detective and mystery stories") %>%
+  view()
+
+gutenberg_subjects %>%
+  filter(grepl("Holmes, Sherlock", subject)) %>%
+  view()
+
+gutenberg_subjects %>%
+  filter(grepl("Handbooks, manuals, etc.", subject)) %>%
+  view()
